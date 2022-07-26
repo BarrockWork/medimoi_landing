@@ -105,33 +105,19 @@ export function Pricing() {
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
             <span className="relative whitespace-nowrap">
               <SwirlyDoodle className="absolute top-1/2 left-0 h-[1em] w-full fill-blue-400" />
-              <span className="relative">Simple pricing,</span>
+              <span className="relative">Offre Unique,</span>
             </span>{' '}
-            for everyone.
+            pour tout le monde.
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            It doesn’t matter what size your business is, our software won’t
-            work well for you.
+            Quelque soit la taille de votre entrprise, notre entreprise fonctionnera parfaitement pour vous.
           </p>
         </div>
-        <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
-          <Plan
-            name="Starter"
-            price="$9"
-            description="Good for anyone who is self-employed and just getting started."
-            href="/register"
-            features={[
-              'Send 10 quotes and invoices',
-              'Connect up to 2 bank accounts',
-              'Track up to 15 expenses per month',
-              'Manual payroll support',
-              'Export up to 3 reports',
-            ]}
-          />
+        <div className="item-center -mx-4 mt-16 flex  justify-center max-w-2xl flex-row gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none xl:mx-0 xl:gap-x-8">
           <Plan
             featured
             name="Small business"
-            price="$15"
+            price="14.99€"
             description="Perfect for small / medium sized businesses."
             href="/register"
             features={[
@@ -142,19 +128,6 @@ export function Pricing() {
               'Export up to 12 reports',
               'Bulk reconcile transactions',
               'Track in multiple currencies',
-            ]}
-          />
-          <Plan
-            name="Enterprise"
-            price="$39"
-            description="For even the biggest enterprise companies."
-            href="/register"
-            features={[
-              'Send unlimited quotes and invoices',
-              'Connect up to 15 bank accounts',
-              'Track up to 200 expenses per month',
-              'Automated payroll support',
-              'Export up to 25 reports, including TPS',
             ]}
           />
         </div>
