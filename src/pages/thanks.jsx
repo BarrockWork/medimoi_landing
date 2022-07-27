@@ -39,7 +39,7 @@ export default function Thanks() {
                     setLoading(false)
                 }, 3000)
                 setInterval(()=>{
-                    window.location.href = process.env.DOMAINE_FRONT
+                    window.location.href = "http://localhost:4010"
                 }, 5000)
             }
         } 
