@@ -16,17 +16,27 @@ const stripePromise = loadStripe(
 
 export default function Register() {
 
-  useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search);
-    if (query.get('success')) {
-      console.log('Order placed! You will receive an email confirmation.');
-    }
+  // useEffect(() => {
+  //   // Check to see if this is a redirect back from Checkout
+  //   const query = new URLSearchParams(window.location.search);
+  //   if (query.get('success')) {
+  //     console.log('Order placed! You will receive an email confirmation.');
+  //     const user = JSON.parse(localStorage.getItem("user"));
+  //     // const plan = JSON.parse(localStorage.getItem("plans"))[0];
+  //     if(user !== null){
+  //       console.log(`merci pour votre inscription ${user.email}`)
+  //     //   console.log(plan.id, "plan id")
+  //     //   createUserPlan(user, plan)
+  //     //   // if(userPlan){
+  //     //   //   console.log("user plan créé" + userPlan.id)
+  //     //   // }
+  //     }
+  //   }
 
-    if (query.get('canceled')) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
-    }
-  }, []);
+  //   if (query.get('canceled')) {
+  //     console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+  //   }
+  // }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,11 +63,14 @@ export default function Register() {
       // console.log(JSON.stringify(results.data.newUser))
       localStorage.setItem("user", JSON.stringify(results.data.newUser))
       // alert("votre compte à été créé")
-
-      const session = await fetch("/api/checkout_sessions", {
-        method: "POST"
+      const response = await fetch("/api/checkout_sessions", {
+        method: "POST",
+        body: email
       })
-      console.log(session)
+      const session = await response.json();
+      // console.log(session)
+
+      // redirection vers la session checkout.
       window.location.href = session.url;
 
     } catch (error) {
@@ -177,7 +190,7 @@ export default function Register() {
           </div>
         </form>
 
-        <form action="/api/checkout_sessions" method="post">
+        {/* <form action="/api/checkout_sessions" method="post">
           <Button
             type="submit"
             variant="solid"
@@ -188,7 +201,7 @@ export default function Register() {
               Proceder au paiement <span aria-hidden="true">&rarr;</span>
             </span>
           </Button>
-        </form>
+        </form> */}
 
       </AuthLayout>
     </>

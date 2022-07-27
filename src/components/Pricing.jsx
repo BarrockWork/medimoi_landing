@@ -2,6 +2,8 @@ import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+import { useEffect, useState } from 'react'
+import { apiAxios } from '@/assets/axios';
 
 function SwirlyDoodle({ className }) {
   return (
@@ -94,12 +96,22 @@ function Plan({ name, price, description, href, features, featured = false }) {
 }
 
 export function Pricing() {
+  const [plans, setPlans] = useState([])
+  const getPlansData = async () => {
+    const results = await apiAxios.get('/api/plans/all')
+    setPlans(results.data)
+    localStorage.setItem("plans", JSON.stringify(results.data))
+  }
+  useEffect(()=>{
+    getPlansData()
+  },[])
   return (
     <section
       id="pricing"
       aria-label="Pricing"
       className="bg-slate-900 py-20 sm:py-32"
     >
+      {console.log("plan", plans)}
       <Container>
         <div className="md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
@@ -114,22 +126,27 @@ export function Pricing() {
           </p>
         </div>
         <div className="item-center -mx-4 mt-16 flex  justify-center max-w-2xl flex-row gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none xl:mx-0 xl:gap-x-8">
-          <Plan
-            featured
-            name="Small business"
-            price="14.99€"
-            description="Perfect for small / medium sized businesses."
-            href="/register"
-            features={[
-              'Send 25 quotes and invoices',
-              'Connect up to 5 bank accounts',
-              'Track up to 50 expenses per month',
-              'Automated payroll support',
-              'Export up to 12 reports',
-              'Bulk reconcile transactions',
-              'Track in multiple currencies',
-            ]}
-          />
+          {
+            plans.map((plan, key)=>{
+              return <Plan
+                key={key}
+                featured
+                name={plan.name}
+                price={`${plan.price}€`}
+                description="Perfect for small / medium sized businesses."
+                href="/register"
+                features={[
+                  'Send 25 quotes and invoices',
+                  'Connect up to 5 bank accounts',
+                  'Track up to 50 expenses per month',
+                  'Automated payroll support',
+                  'Export up to 12 reports',
+                  'Bulk reconcile transactions',
+                  'Track in multiple currencies',
+                ]}
+              />
+            })
+          }
         </div>
       </Container>
     </section>
