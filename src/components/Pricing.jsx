@@ -89,7 +89,7 @@ function Plan({ name, price, description, href, features, featured = false }) {
         className="mt-8"
         aria-label={`Get started with ${name} plan for ${price}`}
       >
-        Get started
+        Choisir cette offre
       </Button>
     </section>
   )
@@ -132,17 +132,14 @@ export function Pricing() {
                 key={key}
                 featured
                 name={plan.name}
-                price={`${plan.price}€`}
-                description="Perfect for small / medium sized businesses."
+                price={`${plan.price} €`}
+                description="Abonnement mensuel"
                 href="/register"
                 features={[
-                  'Send 25 quotes and invoices',
-                  'Connect up to 5 bank accounts',
-                  'Track up to 50 expenses per month',
-                  'Automated payroll support',
-                  'Export up to 12 reports',
-                  'Bulk reconcile transactions',
-                  'Track in multiple currencies',
+                  'Accès complet au dashboard',
+                  "Jusqu'a 5 utilisateurs en simultané",
+                  'Un suivi simplifié de vos traitements',
+                  'Renouellement automatique de votre offre',
                 ]}
               />
             })

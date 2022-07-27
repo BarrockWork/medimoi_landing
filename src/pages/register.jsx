@@ -68,6 +68,7 @@ export default function Register() {
         body: email
       })
       const session = await response.json();
+      localStorage.setItem("checkout_session_id", JSON.stringify(session.id))
       // console.log(session)
 
       // redirection vers la session checkout.

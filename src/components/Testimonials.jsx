@@ -12,18 +12,22 @@ const testimonials = [
     {
       content:
         'TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.',
+      content_fr: "Medi'moi est si facile à utiliser que je ne peux m'empêcher de me demander s'il fait vraiment ce que le gouvernement attend de moi.",
       author: {
         name: 'Sheryl Berge',
         role: 'CEO at Lynch LLC',
+        role_fr: "Avocate",
         image: avatarImage1,
       },
     },
     {
       content:
         'I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.',
+      content_fr: "Bonne application, facile à prendre en main et très ludique",
       author: {
         name: 'Amy Hahn',
         role: 'Director at Velocity Industries',
+        role_fr:"Étudiante",
         image: avatarImage4,
       },
     },
@@ -32,18 +36,22 @@ const testimonials = [
     {
       content:
         'The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.',
+      content_fr: "Ce dashboard me sauve la vie, je n'ai plus besoin de me concentrer sur mes traiment, il fait tout pour moi 😉",
       author: {
         name: 'Leland Kiehn',
         role: 'Founder of Kiehn and Sons',
+        role_fr:"Journaliste",
         image: avatarImage5,
       },
     },
     {
       content:
         'There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.',
+      content_fr: "L’équipe de Medi'moi est très à l’écoute de ses clients et les aident tout au long de leur découverte de la plateforme.",
       author: {
         name: 'Erin Powlowski',
         role: 'COO at Armstrong Inc',
+        role_fr:"Étudiante",
         image: avatarImage2,
       },
     },
@@ -52,18 +60,22 @@ const testimonials = [
     {
       content:
         'I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.',
+      content_fr: "Super suivi, super attitude et les meilleurs prix. Je ne peux pas demander plus que cela.",
       author: {
         name: 'Peter Renolds',
         role: 'Founder of West Inc',
+        role_fr:"Fondateur de West Inc",
         image: avatarImage3,
       },
     },
     {
       content:
         'This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.',
+      content_fr: "Merci à Medi'moi d'être un partenaire qui veille sur le petit gars ! John Doe a été d'une grande aide.",
       author: {
         name: 'Amy Hahn',
         role: 'Director at Velocity Industries',
+        role_fr:"Directeur chez Velocity Industries",
         image: avatarImage4,
       },
     },
@@ -88,12 +100,10 @@ export function Testimonials() {
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Loved by businesses worldwide.
+            Des clients toujours plus satisfaits
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Our software is so simple that people can’t help but fall in love
-            with it. Simplicity is easy when you just skip tons of
-            mission-critical features.
+              Notre logiciel est si simple que les gens ne peuvent s'empêcher d'en tomber amoureux.
           </p>
         </div>
         <ul
@@ -109,7 +119,7 @@ export function Testimonials() {
                       <QuoteIcon className="absolute top-6 left-6 fill-slate-100" />
                       <blockquote className="relative">
                         <p className="text-lg tracking-tight text-slate-900">
-                          {testimonial.content}
+                          {testimonial.content_fr}
                         </p>
                       </blockquote>
                       <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
@@ -118,7 +128,7 @@ export function Testimonials() {
                             {testimonial.author.name}
                           </div>
                           <div className="mt-1 text-sm text-slate-500">
-                            {testimonial.author.role}
+                            {testimonial.author.role_fr}
                           </div>
                         </div>
                         <div className="overflow-hidden rounded-full bg-slate-50">

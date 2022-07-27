@@ -8,29 +8,40 @@ import { SelectField, TextField } from '@/components/Fields'
 import { Logo } from '@/components/Logo';
 import {apiAxios} from "@/assets/axios";
 
+
 export default function Thanks() {
 
     const [loading, setLoading] = useState(true);
 
+    const getSession = async (id) => {
+        const response = await fetch('/api/get_checkout_sessions', {
+            body: id,
+            method: "POST"
+        })
 
+        const data = await response.json();
+        return data.subscription;
+    }
     useEffect(() => {
         const createUserPlan = async () => {
             const user = JSON.parse(localStorage.getItem("user"));
             const plans = JSON.parse(localStorage.getItem("plans"));
+            const session_id = JSON.parse(localStorage.getItem("checkout_session_id"));
+            const sub = await getSession(session_id)
             const response = await apiAxios.post("/api/user_plans/new", {
               user,
-              plan: plans[0].id 
+              plan: plans[0].id,
+              sub 
             })
-            if(response.status === 200){
+            if(response.status === 200 || response.status === 400){
             //   localStorage.removeItem("user")
-              setInterval(()=>{
-                setLoading(false)
-              }, 3000)
-              setInterval(()=>{
-                window.location.href = "http://www.example.com"
-              }, 5000)
+                setInterval(()=>{
+                    setLoading(false)
+                }, 3000)
+                setInterval(()=>{
+                    window.location.href = process.env.DOMAINE_FRONT
+                }, 5000)
             }
-        
         } 
         if(loading){
             createUserPlan()

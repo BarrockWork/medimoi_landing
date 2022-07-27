@@ -11,7 +11,7 @@ import logoTuple from '@/images/logos/tuple.svg'
 
 export function Hero() {
   return (
-    <Container className="pt-20 pb-16 text-center lg:pt-32">
+    <Container className="pt-20 pb-16 text-center lg:pt-32 " style={{height:"767px"}}>
       <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
         Medi'moi{' '}
         <span className="relative whitespace-nowrap text-orange-600">
@@ -46,7 +46,7 @@ export function Hero() {
           <span className="ml-3">Voir la vidéo</span>
         </Button>
       </div>
-      <div className="mt-36 lg:mt-44">
+      {/* <div className="mt-36 lg:mt-44">
         <p className="font-display text-base text-slate-900">
           Trusted by these six companies so far
         </p>
@@ -80,7 +80,7 @@ export function Hero() {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </Container>
   )
 }
