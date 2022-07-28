@@ -111,7 +111,6 @@ export function Pricing() {
       aria-label="Pricing"
       className="bg-slate-900 py-20 sm:py-32"
     >
-      {console.log("plan", plans)}
       <Container>
         <div className="md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
